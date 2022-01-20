@@ -43,13 +43,14 @@ body {
     margin: 10px;
     color: white;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border: 2px solid #9750b8;
 }
 .numOfQuestions span {
     display: inline-block;
-    padding-top: 8px;
+    padding-top: 10px;
+    font-size: 13px;
 }
 
 /* Discription  */
