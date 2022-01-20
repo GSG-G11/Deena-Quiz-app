@@ -13,7 +13,7 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 };
-
+const names = [];
 const QuestionsData = [
     {
         //Q1
@@ -121,10 +121,10 @@ let name = document.querySelector(".name");
 let username = document.getElementById("username");
 
 let count = 0;
+let userName = "";
 function btnContinue() {
     console.log("username", username.value);
-    names.name = username.value;
-    console.log("names.name", names.name);
+    userName = username.value;
     let x = document.forms["myForm"]["username"].value;
     if (x == "") {
         alert("Name must be filled out");
@@ -144,12 +144,18 @@ function btnContinue() {
     option3.value = QuestionsData[0].option3;
     option4.value = QuestionsData[0].option4;
     count++;
+    document.getElementById("nextBtn").disabled = true;
 }
 let result = 0;
+var radios = document.forms["formA"].elements["question"];
+
+for (radio in radios) {
+    radios[radio].onclick = function () {
+        document.getElementById("nextBtn").disabled = false;
+    };
+}
 function next() {
-    // if (document.querySelector('input[name="question"]:checked').value == "") {
     let check = document.querySelector('input[name="question"]:checked').value;
-    // nextBtn.style.display = "block";
     console.log("check", check);
     if (check == QuestionsData[count - 1].answer) {
         result++;
@@ -157,9 +163,6 @@ function next() {
     }
     document.querySelector('input[name="question"]:checked').checked = false;
     if (count <= 9) {
-        // document.querySelector(
-        //     'input[name="question"]:checked'
-        // )[0].checked = false;
         question.innerHTML = QuestionsData[count].question;
         label1.innerHTML = QuestionsData[count].option1;
         label2.innerHTML = QuestionsData[count].option2;
@@ -170,35 +173,37 @@ function next() {
         option3.value = QuestionsData[count].option3;
         option4.value = QuestionsData[count].option4;
         numOfQuestions.innerHTML = `${count + 1}/10`;
-
         count++;
-        console.log(check);
     } else if (count == 10) {
         q1.style.display = "none";
         textResult.style.display = "block";
         text.innerHTML = `${result}/10`;
         console.log(`the result is: ${result}`);
+        count = 0;
+        numOfQuestions.innerHTML = `${count + 1}/10`;
+        document.forms["myForm"]["username"].value = "";
+        document.getElementById("nextBtn").disabled = true;
 
-        names.score = `${result}/10`;
+        names.push({ name: userName, score: `${result}/10` });
         console.log(names);
-
-        // }
+        result = 0;
     }
+    document.getElementById("nextBtn").disabled = true;
 }
 function leaderBoard() {
     score.style.display = "block";
-    // console.log(names[0]);
+    textResult.style.display = "none";
+    document.getElementById("scores").innerHTML = "";
+    var ul = document.getElementById("scores");
+    for (var i = 0; i < names.length; i++) {
+        var user = names[i];
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(`${user.name}  ${user.score}`));
+        ul.appendChild(li);
+    }
 }
 function start() {
+    score.style.display = "none";
+    textResult.style.display = "none";
     name.style.display = "block";
-    // console.log(names);
 }
-
-const names = [
-    {
-        name: "",
-        score: "",
-    },
-];
-// {[username,`${result} /10`]};
-// console.log(names);

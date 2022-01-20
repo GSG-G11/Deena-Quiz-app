@@ -11,6 +11,7 @@
         <div class="main">
             <img src="imges/quiz.jpeg" class="Quiz" /><br />
 
+            <!-- Discription button -->
             <button id="descriptiveBtn" class="btn">Discription</button>
             <div id="myModal" class="modal">
                 <div class="modal-content">
@@ -22,40 +23,80 @@
                     </p>
                 </div>
             </div>
+            <!-- end of Discription button -->
+
+            <!-- Start button  -->
             <button class="start btn" onclick="start()">Start Quiz</button>
+            <!-- leader board button -->
             <button class="btn" onclick="leaderBoard()">leader board</button>
 
+            <!-- question list -->
             <div class="Q1">
                 <div class="numOfQuestions">
                     <span id="numOfQuestions">1/10</span>
                 </div>
                 <div class="content">
-                    <p class="question" id="question"></p>
-                    <input id="option1" type="radio" name="question" value="" />
-                    <label for="option1" id="label1"> </label><br />
+                    <form name="formA">
+                        <!-- question1 -->
+                        <p class="question" id="question"></p>
 
-                    <input id="option2" type="radio" name="question" value="" />
-                    <label for="option2" id="label2"> </label><br />
+                        <!-- option1 -->
+                        <input
+                            id="option1"
+                            type="radio"
+                            name="question"
+                            value=""
+                        />
+                        <label for="option1" id="label1"> </label><br />
 
-                    <input id="option3" type="radio" name="question" value="" />
-                    <label for="option3" id="label3"> </label><br />
+                        <!-- option2 -->
+                        <input
+                            id="option2"
+                            type="radio"
+                            name="question"
+                            value=""
+                        />
+                        <label for="option2" id="label2"> </label><br />
 
-                    <input id="option4" type="radio" name="question" value="" />
-                    <label for="option4" id="label4"></label><br />
+                        <!-- option3 -->
+                        <input
+                            id="option3"
+                            type="radio"
+                            name="question"
+                            value=""
+                        />
+                        <label for="option3" id="label3"> </label><br />
+
+                        <!-- option4 -->
+                        <input
+                            id="option4"
+                            type="radio"
+                            name="question"
+                            value=""
+                        />
+                        <label for="option4" id="label4"></label><br />
+                    </form>
                 </div>
+
+                <!-- next button  -->
                 <div class="nextBtn">
                     <button class="next btn" id="nextBtn" onclick="next()">
                         next question
                     </button>
                 </div>
+                <!--end of next button  -->
             </div>
+            <!--end of question list -->
+
+            <!-- result of form  and score-->
             <div class="result" id="textResult">
                 <p>The result is: <span id="text"></span></p>
             </div>
             <div class="score" id="score">
-ul#
+                <ul id="scores"></ul>
             </div>
 
+            <!-- enter name (form) -->
             <div class="name">
                 <form name="myForm">
                     <label for="username">Enter your name: </label><br />
@@ -71,6 +112,7 @@ ul#
                     </button>
                 </form>
             </div>
+            <!-- enter name (end form) -->
 
             <script src="javaScript/main.js"></script>
         </div>

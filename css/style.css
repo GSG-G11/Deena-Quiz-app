@@ -13,15 +13,7 @@ body {
     width: 452px;
     margin: 25px;
 }
-/* .QuizImg {
-    text-align: center;
-} */
-/* .title {
-    text-align: center;
-} */
-.Q1 {
-    display: none;
-}
+
 .Q1 {
     text-align: left;
     width: 452px;
@@ -29,6 +21,7 @@ body {
     margin: auto;
     border: 5px solid black;
     margin-top: 20px;
+    display: none;
 }
 .Q1 .content {
     margin-left: 30px;
@@ -58,7 +51,8 @@ body {
     display: inline-block;
     padding-top: 8px;
 }
-/* dddddddddddddddddddddddddddddddddddddddddddddddddddddddddd */
+
+/* Discription  */
 .modal {
     display: none;
     position: fixed;
@@ -92,7 +86,8 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
-/* dddddddddddddddddddddddddddddddddddddddddddddddddddddddd */
+/* end Discription  */
+
 .btn {
     background-color: black;
     color: #f4a3ff;
@@ -102,6 +97,8 @@ body {
     height: 50px;
     margin-right: 10px;
 }
+
+/* result of form  and score */
 #textResult {
     background-color: black;
     color: #f4a3ff;
@@ -113,6 +110,8 @@ body {
     padding: 10px;
     display: none;
 }
+
+/* score */
 .score {
     background-color: #f4a3ff;
     border: 2px solid black;
@@ -145,4 +144,12 @@ body {
     margin: 10px;
     border-radius: 10px;
     height: 30px;
+}
+ul#scores {
+    list-style: none;
+    padding-left: 0;
+}
+.btn[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
