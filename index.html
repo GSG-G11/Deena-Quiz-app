@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Quiz</title>
+    </head>
+    <body>
+        <div class="main">
+            <img src="imges/quiz.jpeg" class="Quiz" /><br />
+
+            <button id="descriptiveBtn" class="btn">Discription</button>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>
+                        You must solve all the questions to get a high score,
+                        They are 10 questions that determine the level of
+                        scientific knowledge of html and css
+                    </p>
+                </div>
+            </div>
+            <button class="start btn" onclick="start()">Start Quiz</button>
+            <button class="btn" onclick="leaderBoard()">leader board</button>
+
+            <div class="Q1">
+                <div class="numOfQuestions">
+                    <span id="numOfQuestions">1/10</span>
+                </div>
+                <div class="content">
+                    <p class="question" id="question"></p>
+                    <input id="option1" type="radio" name="question" value="" />
+                    <label for="option1" id="label1"> </label><br />
+
+                    <input id="option2" type="radio" name="question" value="" />
+                    <label for="option2" id="label2"> </label><br />
+
+                    <input id="option3" type="radio" name="question" value="" />
+                    <label for="option3" id="label3"> </label><br />
+
+                    <input id="option4" type="radio" name="question" value="" />
+                    <label for="option4" id="label4"></label><br />
+                </div>
+                <div class="nextBtn">
+                    <button class="next btn" id="nextBtn" onclick="next()">
+                        next question
+                    </button>
+                </div>
+            </div>
+            <div class="result" id="textResult">
+                <p>The result is: <span id="text"></span></p>
+            </div>
+            <div class="score" id="score">
+                <pre> name         score</pre>
+                <pre><span>ss</span>          <span>ss</span></pre>
+            </div>
+            <script src="javaScript/main.js"></script>
+        </div>
+    </body>
+</html>
