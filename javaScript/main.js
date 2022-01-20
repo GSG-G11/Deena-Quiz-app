@@ -117,10 +117,23 @@ let textResult = document.getElementById("textResult");
 let text = document.getElementById("text");
 let score = document.getElementById("score");
 let nextBtn = document.getElementById("nextBtn");
+let name = document.querySelector(".name");
+let username = document.getElementById("username");
+
 let count = 0;
-function start() {
+function btnContinue() {
+    console.log("username", username.value);
+    names.name = username.value;
+    console.log("names.name", names.name);
+    let x = document.forms["myForm"]["username"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
     q1.style.display = "block";
     score.style.display = "none";
+    name.style.display = "none";
+
     question.innerHTML = QuestionsData[0].question;
     label1.innerHTML = QuestionsData[0].option1;
     label2.innerHTML = QuestionsData[0].option2;
@@ -130,21 +143,19 @@ function start() {
     option2.value = QuestionsData[0].option2;
     option3.value = QuestionsData[0].option3;
     option4.value = QuestionsData[0].option4;
-    // console.log(question);
-    // let checke = document.querySelector('input[name="question"]:checked').value;
-    // console.log(checke);
     count++;
 }
 let result = 0;
 function next() {
-    // nextBtn.style.display = "none";
+    // if (document.querySelector('input[name="question"]:checked').value == "") {
     let check = document.querySelector('input[name="question"]:checked').value;
     // nextBtn.style.display = "block";
+    console.log("check", check);
     if (check == QuestionsData[count - 1].answer) {
         result++;
         console.log(result);
     }
-
+    document.querySelector('input[name="question"]:checked').checked = false;
     if (count <= 9) {
         // document.querySelector(
         //     'input[name="question"]:checked'
@@ -159,6 +170,7 @@ function next() {
         option3.value = QuestionsData[count].option3;
         option4.value = QuestionsData[count].option4;
         numOfQuestions.innerHTML = `${count + 1}/10`;
+
         count++;
         console.log(check);
     } else if (count == 10) {
@@ -166,8 +178,27 @@ function next() {
         textResult.style.display = "block";
         text.innerHTML = `${result}/10`;
         console.log(`the result is: ${result}`);
+
+        names.score = `${result}/10`;
+        console.log(names);
+
+        // }
     }
 }
 function leaderBoard() {
     score.style.display = "block";
+    // console.log(names[0]);
 }
+function start() {
+    name.style.display = "block";
+    // console.log(names);
+}
+
+const names = [
+    {
+        name: "",
+        score: "",
+    },
+];
+// {[username,`${result} /10`]};
+// console.log(names);
